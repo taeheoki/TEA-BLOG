@@ -1,4 +1,4 @@
-package hello.teablog.controller;
+package hello.teablog.controller.viewtest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
