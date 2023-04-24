@@ -1,5 +1,6 @@
 package hello.teablog.model.board;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import hello.teablog.model.user.User;
 import lombok.*;
 
@@ -27,7 +28,9 @@ public class Board {
 
     @Lob // 4GB
     private String thumbnail; // content에 등록된 사진 중 하나를 선정해서 자동으로 만들기
+    @JsonIgnore
     private LocalDateTime createdAt;
+    @JsonIgnore
     private LocalDateTime updatedAt;
 
     @PrePersist
