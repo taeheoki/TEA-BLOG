@@ -22,6 +22,13 @@ public class BoardController {
 
     private final BoardService boardService;
 
+    @PostMapping("/s/board/{id}/delete")
+    public String delete(@PathVariable Long id, @AuthenticationPrincipal MyUserDetails myUserDetails) {
+        // 소유자 확인? DB 조회해야 가능함
+        boardService.게시글삭제(id, myUserDetails.getUser().getId());
+        return "redirect:/";
+    }
+
     // RestAPI 주소 설계 규칙에서 자원에는 복수를 붙인다. boards 정석!!
     @GetMapping({"/", "/board"})
     public String main(
