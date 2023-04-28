@@ -32,6 +32,7 @@ public class UserService {
         // 1. 유저네임 중복확인
         Optional<User> userOP = userRepository.findByUsername(joinInDTO.getUsername());
         if (userOP.isPresent()) {
+            // 로그 (비정상적인 접근)
             throw new Exception400("username", "유저네임이 중복되었어요");
         }
         try {
